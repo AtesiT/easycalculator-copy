@@ -59,6 +59,41 @@ button9 = Button(frame, text=9, height=4, width=9, font=35,
                 command = lambda: button_press(9) ) #девятая кнопка
 button9.grid(row=2,column=2) # "сетка" и расположение кнопки
 
+button0 = Button(frame, text=0, height=4, width=9, font=35, 
+                command = lambda: button_press(0) ) #нулевая-десятая кнопка
+button0.grid(row=3,column=0) # "сетка" и расположение кнопки
+
+plus = Button(frame, text='+', height=4, width=9, font=35, 
+                command = lambda: button_press('+') ) #плюс кнопка
+plus.grid(row=0,column=3) # "сетка" и расположение кнопки
+
+minus = Button(frame, text='-', height=4, width=9, font=35, 
+                command = lambda: button_press('-') ) #минус кнопка
+minus.grid(row=1,column=3) # "сетка" и расположение кнопки
+
+multiply = Button(frame, text='*', height=4, width=9, font=35, 
+                command = lambda: button_press('*') ) #умножить кнопка
+multiply.grid(row=2,column=3) # "сетка" и расположение кнопки
+
+divide = Button(frame, text='/', height=4, width=9, font=35, 
+                command = lambda: button_press('/') ) #деление кнопка
+divide.grid(row=3,column=3) # "сетка" и расположение кнопки
+
+equal = Button(frame, text='=', height=4, width=9, font=35, 
+                command = lambda: button_press('=') ) #равно кнопка
+equal.grid(row=3,column=2) # "сетка" и расположение кнопки
+
+decimal = Button(frame, text='.', height=4, width=9, font=35, 
+                command = lambda: button_press('.') ) #десятичная кнопка
+decimal.grid(row=3,column=1) # "сетка" и расположение кнопки
+
+clear = Button(window, text='clear', height=4, width=12, font=35, 
+                command = clear ) #очистить кнопка
+
+clear.pack()
+
+
+
 
 
 window.mainloop() #цикл окна, чтобы дальше код не работал, пока не закроется окно
