@@ -1,13 +1,46 @@
 from tkinter import *
 
 def button_press(num):
-    pass
+    
+    global equation_text #текст
+
+    equation_text = equation_text + str(num) #преобразование в строку и назначение
+
+    equation_label.set(equation_text) #установка текста и возможность ввода
 
 def equals():
-    pass
+    
+    global equation_text
 
-def clear():
-    pass
+    try:
+
+        total = str(eval(equation_text)) #анализирует выражение, которое было передано и будет присвоено в тотал
+
+        equation_label.set(total)  #итог
+
+        equation_text = total #присвоение
+
+    except SyntaxError:
+
+        equation_label.set('Где-то ошибка') #если только знаки
+
+        equation_text = ""
+
+    except ZeroDivisionError:
+
+        equation_label.set('На ноль не делят') #ошибка, если делить на 0
+
+        equation_text = ""
+
+def clear(): #очистить результат
+
+    global equation_text
+
+    equation_label.set("") 
+
+    equation_text = "" #ввести пустое поле (очистить поле)
+
+
 
 window = Tk() #Вывод оконного интерфейса
 window.title('My calculator') #Заголовок
@@ -80,7 +113,7 @@ divide = Button(frame, text='/', height=4, width=9, font=35,
 divide.grid(row=3,column=3) # "сетка" и расположение кнопки
 
 equal = Button(frame, text='=', height=4, width=9, font=35, 
-                command = lambda: button_press('=') ) #равно кнопка
+                command = equals ) #равно кнопка
 equal.grid(row=3,column=2) # "сетка" и расположение кнопки
 
 decimal = Button(frame, text='.', height=4, width=9, font=35, 
